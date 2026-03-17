@@ -5,5 +5,5 @@ begins a battle sequence once the player has selcted a character with an enemy.
 ---
 
 ## Videos
-- [Code Demo](https://www.youtube.com/watch?v=...)
-- [Code Walkthrough](https://www.youtube.com/watch?v=...)
+- [Code Demo](https://youtu.be/ebFJmVqalnU)
+- [Code Walkthrough](https://youtu.be/xs-r1BwFUZQ)
