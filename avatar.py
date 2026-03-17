@@ -1,8 +1,15 @@
+"""
+Final project 
+Text Based Game
+Garrett Warthen, 03-14-2026, CS 126P
 
+This program allows the user to pick a character they would like to play with and
+begins a battle sequence once the player has selcted a character with an enemy.
+"""
 class Avatar:
 
-# constructor method used to create multiple unique attributes for each individual avatar
     def __init__(self, name: str, color: str, health: int, power: int, level:int):
+        """constructor method used to create multiple unique attributes for each individual avatar"""
 
         self._name = name 
         self._color = color
@@ -74,7 +81,7 @@ class Avatar:
     def attack(self):
         print(f"{self.name} attacks and deals {self._power} health points of damage!")
 
-    #taking damage method that checks to see if the damage taken is a positive value and if so removes it from the platers health
+    #taking damage method that checks to see if the damage taken is a positive value and if so removes it from the players health
     #then check the health value again and prints differnt statements depending in what the players health is at
     #also doesn't allow for damage to be negative
 

@@ -1,3 +1,12 @@
+"""
+Final project 
+Text Based Game
+Garrett Warthen, 03-14-2026, CS 126P
+
+This program allows the user to pick a character they would like to play with and
+begins a battle sequence once the player has selcted a character with an enemy.
+"""
+# class and text file imports
 from enemy import Enemy
 from avatar import Avatar
 
@@ -6,24 +15,23 @@ file_contents_1 = file_1.read()
 file_2 = open("encounter.txt", "r")
 file_contents_2 = file_2.read()
 
+#avatar and enemy creation
 character_1 = Avatar("Ash", "Dark Red", 100, 20, 1 )
 character_2 = Avatar("Aang", "Blue", 200, 10, 1)
 
 enemy_1 = Enemy("Goblin", "Damage Dealer", 50, 15)
 
-
-#function used to check that the player inputed valid traits
-#just checking to make sure its not an empty string and returning their input
-
 def get_valid_string(message):
+    """This function checks to make sure the imput isn't and empty string"""
+
     character_traits = input(f"What would you like your {message} to be?: ").strip()
     while character_traits == "":
         character_traits = input(f"   {message} must include at least one character. Enter {message}: ").strip()
     return character_traits
 
-# attack function used to ask the player if they would like to attack and if so calls the attack method from the avatar class
-
 def avatar_attack(player):
+    """this function asks the player if they would like to attack and if so calls the attack method from the avatar class"""
+
     entry = input(f"\nWould you like {player.name} to attack the {enemy_1.name}? (Y or N): ").strip().lower()
 
     while entry not in ("y", "n"):
@@ -37,7 +45,9 @@ def avatar_attack(player):
         return False
 
 def select_character():
-
+    """this function allows the player to select and avatar from two options
+    and allows the player to switch to a differnt character if they don't like the avatar stats
+    """
     while True:
         print("\n Select Your Character!")
         print("Character 1: Ash")
@@ -62,6 +72,9 @@ def select_character():
         
 
 def continue_game():
+    """This function is used to ask the player if they would like to start the game after reading the game rules
+    and will stop the program if the player chooses not to continue 
+    """
     entry = input("Are you ready to start the game (Y or N)?: ").strip().lower()
 
     while entry not in ("y", "n"):
@@ -74,6 +87,9 @@ def continue_game():
         return False
 
 def customize_avatar(player):
+    """function used to ask if the player would like to change their selected avatars attributes 
+    and calls the (get_valid_string())function to check if the player inputs were valid
+    """
     valid_entry = False
 
     entry = input(f"Would you like to change your avatars name and color (Y or N)?: ").strip().lower()
@@ -92,6 +108,7 @@ def customize_avatar(player):
         print("Avatar was unchanged!")
 
 def enter_attack_phase(player):
+    """function used to ask if the player would like to enter a battle and starts the battle loop if true"""
 
     entry = input(f"Would you like to enter a battle with the {enemy_1.name}? (Y or N): ").strip().lower()
     while entry not in ("y", "n"):
@@ -106,6 +123,7 @@ def enter_attack_phase(player):
         return False
     
 def battle(player, enemy):
+    """Main battle loop function that wont end until either the player or enemy have been defeated"""
 
     print(f"\n You have enterd a battle with the {enemy.name}!")
     print(enemy.enemy_traits())
@@ -131,10 +149,9 @@ def battle(player, enemy):
 
     print("\n   ATTACKING PHASE OVER!!!   ")
 
-#main function used to print all of the inputs and prompts 
 
 def main():
-
+    """main driver used for important pints and function calls"""
     print ("\n   GAME RULES!!!   ")
     print (file_contents_1)
     file_1.close()
