@@ -1,0 +1,8 @@
+
+- Choose your avatar and customize it.
+- Battle a Goblin enemy in turn-based combat.
+- Each turn, you can attack or skip.
+- Attacks deal damage based on power.
+- The enemy attacks after your turn.
+- The battle ends when either you or the enemy reaches 0 health.
+- Defeat the enemy to win!

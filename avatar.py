@@ -2,11 +2,12 @@
 class Avatar:
 
 # constructor method used to create multiple unique attributes for each individual avatar
-    def __init__(self, name: str, color: str, health: int, level:int):
+    def __init__(self, name: str, color: str, health: int, power: int, level:int):
 
         self._name = name 
         self._color = color
         self.health = health 
+        self.power = power
         self.level = level
 
 #getter methods for each attribute used to read attribute values for given class instance
@@ -21,6 +22,10 @@ class Avatar:
     @property
     def health(self):
         return int(self._health)
+    
+    @property
+    def power(self):
+        return int(self._power)
     
     @property
     def level(self):
@@ -46,6 +51,14 @@ class Avatar:
         else:
             self._health = new_health
 
+    @power.setter
+    def power(self, new_power):
+        if new_power < 0:
+            self._power = 1
+            print("Avatar must have at least 1 attack power")
+        else:
+            self._power = new_power
+
     #checks if the level is less than or equal to zero and if so sets the level to 1
 
     @level.setter
@@ -59,8 +72,7 @@ class Avatar:
     #simple attack method that sets the power of the players attack equal to their level
     
     def attack(self):
-        attack_power = self._level
-        print(f"{self.name} attacks and deals {attack_power} health points of damage!")
+        print(f"{self.name} attacks and deals {self._power} health points of damage!")
 
     #taking damage method that checks to see if the damage taken is a positive value and if so removes it from the platers health
     #then check the health value again and prints differnt statements depending in what the players health is at
@@ -93,7 +105,7 @@ class Avatar:
     #simple method to see the current players avater traits
 
     def avatar_traits(self):
-        return f"Your avatar {self._name} is {self._color}, has {self._health} health points, and is level {self._level}"
+        return f"Your avatar {self._name} is {self._color}, has {self._health} health points, {self._power} attack power, and is level {self._level}"
         
 
 
