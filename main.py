@@ -1,4 +1,4 @@
-
+from enemy import Enemy
 from avatar import Avatar
 
 #function used to check that the player inputed valid traits
